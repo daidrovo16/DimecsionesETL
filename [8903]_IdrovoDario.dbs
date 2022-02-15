@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="MySql" id="Project-f8e" database="MySql" >
+	<schema name="dw_sales_music" >
+		<table name="dim_albums" row_count="0" spec="" >
+			<column name="AlbumId" type="int" jt="4" mandatory="y" />
+			<column name="Title" type="varchar" length="160" jt="12" />
+			<index name="pk_dim_albums" unique="PRIMARY_KEY" >
+				<column name="AlbumId" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="dim_artist" row_count="0" spec="" >
+			<column name="ArtistId" type="int" jt="4" mandatory="y" />
+			<column name="Name_Artist" type="varchar" length="160" jt="12" />
+			<index name="pk_dim_artist" unique="PRIMARY_KEY" >
+				<column name="ArtistId" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="dim_customer" row_count="0" spec="" >
+			<column name="CustomerId" type="int" jt="4" mandatory="y" />
+			<column name="FirstName" type="varchar" length="40" jt="12" />
+			<column name="LastName" type="varchar" length="20" jt="12" />
+			<column name="Company" type="varchar" length="80" jt="12" />
+			<column name="Address" type="varchar" length="70" jt="12" />
+			<column name="City" type="varchar" length="40" jt="12" />
+			<column name="State" type="varchar" length="40" jt="12" />
+			<column name="Country" type="varchar" length="40" jt="12" />
+			<column name="PostalCode" type="varchar" length="10" jt="12" />
+			<column name="Phone" type="varchar" length="24" jt="12" />
+			<column name="Fax" type="varchar" length="24" jt="12" />
+			<column name="Email" type="varchar" length="60" jt="12" />
+			<index name="pk_dim_customer" unique="PRIMARY_KEY" >
+				<column name="CustomerId" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="dim_employees" row_count="0" spec="" >
+			<column name="EmployeeId" type="int" jt="4" mandatory="y" />
+			<column name="LastName" type="varchar" length="20" jt="12" mandatory="y" />
+			<column name="FirstName" type="varchar" length="20" jt="12" mandatory="y" />
+			<column name="Title" type="varchar" length="30" jt="12" />
+			<column name="ReportsTo" type="int" jt="4" />
+			<column name="BirthDate" type="datetime" jt="93" />
+			<column name="HireDate" type="datetime" jt="93" />
+			<column name="Address" type="varchar" length="70" jt="12" />
+			<column name="City" type="varchar" length="40" jt="12" />
+			<column name="State" type="varchar" length="40" jt="12" />
+			<column name="Country" type="varchar" length="40" jt="12" />
+			<column name="PostalCode" type="varchar" length="10" jt="12" />
+			<column name="Phone" type="varchar" length="24" jt="12" />
+			<column name="Fax" type="varchar" length="24" jt="12" />
+			<column name="Email" type="varchar" length="60" jt="12" />
+			<index name="pk_dim_employees" unique="PRIMARY_KEY" >
+				<column name="EmployeeId" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="dim_genres" row_count="0" spec="" >
+			<column name="GenreId" type="int" jt="4" mandatory="y" />
+			<column name="Name_Genres" type="varchar" length="160" jt="12" />
+			<index name="pk_dim_genres" unique="PRIMARY_KEY" >
+				<column name="GenreId" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="dim_invoice_items" row_count="0" spec="" >
+			<column name="InvoiceLineId" type="int" jt="4" mandatory="y" />
+			<column name="UnitPrice" type="decimal" length="18" decimal="0" jt="3" />
+			<column name="Quantity" type="int" jt="4" />
+			<index name="pk_dim_invoice_items" unique="PRIMARY_KEY" >
+				<column name="InvoiceLineId" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="dim_location" row_count="0" spec="" >
+			<column name="LocationId" type="int" jt="4" mandatory="y" />
+			<column name="Address" type="varchar" length="150" jt="12" />
+			<column name="City" type="varchar" length="50" jt="12" />
+			<column name="State" type="varchar" length="50" jt="12" />
+			<column name="Country" type="varchar" length="50" jt="12" />
+			<column name="PostalCode" type="varchar" length="6" jt="12" />
+			<index name="pk_dim_location" unique="PRIMARY_KEY" >
+				<column name="LocationId" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="dim_playlist" row_count="0" spec="" >
+			<column name="PlaylistId" type="int" jt="4" mandatory="y" />
+			<column name="Name_Playlist" type="varchar" length="160" jt="12" >
+				<column_options><![CDATA[CHARACTER SET utf8 COLLATE utf8_general_ci]]></column_options>
+			</column>
+			<index name="pk_dim_playlist" unique="PRIMARY_KEY" >
+				<column name="PlaylistId" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+		<table name="dim_tiempo" row_count="0" spec="" >
+			<column name="TiempoId" type="int" jt="4" mandatory="y" />
+			<column name="DiadelaSemana" type="varchar" length="10" jt="12" />
+			<column name="Mes" type="varchar" length="10" jt="12" />
+			<column name="Cuartil" type="varchar" length="10" jt="12" />
+			<column name="Anio" type="varchar" length="5" jt="12" />
+			<index name="pk_dim_tiempo" unique="PRIMARY_KEY" >
+				<column name="TiempoId" />
+			</index>
+			<options><![CDATA[ENGINE=InnoDB DEFAULT CHARSET=utf8mb3]]></options>
+		</table>
+	</schema>
+	<connector name="MySql" database="MySql" driver_class="com.mysql.jdbc.Driver" driver_jar="mysql-connector-java-8.0.23.jar" driver_desc="Standard" host="localhost" port="3306" instance="dw_sales_music" user="root" passwd="MTIzNA==" />
+	<layout name="Main Layout" id="Layout-46e" show_relation="columns" >
+		<entity schema="dw_sales_music" name="dim_albums" color="3986C1" x="192" y="208" />
+		<entity schema="dw_sales_music" name="dim_artist" color="3986C1" x="496" y="96" />
+		<entity schema="dw_sales_music" name="dim_customer" color="3986C1" x="496" y="256" />
+		<entity schema="dw_sales_music" name="dim_employees" color="3986C1" x="336" y="304" />
+		<entity schema="dw_sales_music" name="dim_genres" color="3986C1" x="48" y="288" />
+		<entity schema="dw_sales_music" name="dim_invoice_items" color="3986C1" x="48" y="96" />
+		<entity schema="dw_sales_music" name="dim_location" color="3986C1" x="272" y="48" />
+		<entity schema="dw_sales_music" name="dim_playlist" color="3986C1" x="704" y="96" />
+		<entity schema="dw_sales_music" name="dim_tiempo" color="3986C1" x="672" y="288" />
+	</layout>
+	<layout name="~Layout with Sample Tools" id="Layout-1653" show_column_type="y" show_relation="columns" >
+		<entity schema="dw_sales_music" name="dim_albums" color="3986C1" x="336" y="288" />
+		<entity schema="dw_sales_music" name="dim_artist" color="3986C1" x="576" y="288" />
+		<entity schema="dw_sales_music" name="dim_customer" color="3986C1" x="576" y="464" />
+		<entity schema="dw_sales_music" name="dim_employees" color="3986C1" x="304" y="464" />
+		<entity schema="dw_sales_music" name="dim_genres" color="3986C1" x="48" y="288" />
+		<entity schema="dw_sales_music" name="dim_invoice_items" color="3986C1" x="64" y="96" />
+		<entity schema="dw_sales_music" name="dim_location" color="3986C1" x="336" y="48" />
+		<entity schema="dw_sales_music" name="dim_playlist" color="3986C1" x="864" y="288" />
+		<entity schema="dw_sales_music" name="dim_tiempo" color="3986C1" x="864" y="464" />
+		<script name="SQL Editor" id="Editor-269c" language="SQL" >
+			<string><![CDATA[SELECT `AlbumId`, `Title`
+FROM
+	dw_sales_music.dim_albums s;]]></string>
+		</script>
+		<browser id="Browse-143a" name="Relational Data Explorer" confirm_updates="y" >
+			<browse_table schema="dw_sales_music" entity="dim_albums" x="20" y="20" width="400" height="300" />
+		</browser>
+		<query id="Query-1c41" name="Query Builder" >
+			<query_table schema="dw_sales_music" name="dim_albums" alias="da" x="48" y="48" >
+				<column name="AlbumId" />
+				<column name="Title" />
+			</query_table>
+		</query>
+		<form name="Analytic Application" id="Report-1356" template="Page" css="container-fluid" view="frame" >
+			<var name="samplePageNumber" type="4" value="0" mandatory="n" />
+			<var name="sampleRecordsPerPage" type="4" value="100" mandatory="n" />
+			<body name="Body" template="Grid" pos="0,0,0,0,f,f" layout="{{-2,-2,-2,-2,-1},{-2,-2,-2,-2,-2}}" scroll="n" html="n" >
+				<cell type="label" name="Dim_albums Data" template="H3" pos="0,0,1,0,l,c" />
+				<cell type="label" name="Each cell may contain a component: label, chart, button, tableview. &#10;&lt;br&gt;Double-click cells to edit. Insert rows, columns or merge cells from the context menu." pos="0,1,3,1,l,c" />
+				<cell type="chart" name="Pie" template="Pie" pos="0,2,4,2,l,c" max_records="20" >
+					<form_script type="DataSource" language="SQL" >
+						<var name="AlbumId" type="4" />
+						<var name="Title" />
+						<script ><![CDATA[SELECT * FROM dw_sales_music.dim_albums]]></script>
+					</form_script>
+					<param name="i0" value="Title" />
+					<param name="width" value="100%" />
+					<param name="v0" value="AlbumId" />
+					<param name="title" value="Sample Chart" />
+					<param name="height" value="400px" />
+				</cell>
+				<tableview name="sample" template="Table" css="table table-striped table-sm table-hover" pos="0,3,4,3,f,f" layout="{{-2,-2,-2},{-2,-2}}" scroll="n" html="n" header_rows="1" >
+					<form_script type="DataSource" language="SQL" >
+						<var name="AlbumId" type="4" />
+						<var name="Title" />
+						<script ><![CDATA[SELECT * FROM dw_sales_music.dim_albums]]></script>
+					</form_script>
+					<cell type="label" name="AlbumId" pos="0,0,0,0,c,c" />
+					<cell type="label" name="Title" pos="1,0,1,0,c,c" />
+					<cell type="label" name="Button can open other pages." pos="2,0,2,0,c,c" />
+					<cell type="label" name="${AlbumId}" template="Plain" pos="0,1,0,1,l,c" />
+					<cell type="label" name="${Title}" template="Plain" pos="1,1,1,1,l,c" />
+					<cell type="button" name="More" template="Plain" css="btn btn-default btn-success" pos="2,1,2,1,c,c" ref_id="Report-1356" />
+				</tableview>
+				<cell type="href" name="" disabled="${samplePageNumber&lt;1}" pos="0,4,0,4,l,c" glyph="FA-ANGLE_DOUBLE_LEFT" ref_id="Report-1356" >
+					<var name="samplePageNumber" value="0" />
+				</cell>
+				<cell type="href" name="" disabled="${samplePageNumber&lt;1}" pos="1,4,1,4,l,c" glyph="FA-ANGLE_LEFT" ref_id="Report-1356" >
+					<var name="samplePageNumber" value="${Math.max(0,samplePageNumber-1)}" />
+				</cell>
+				<cell type="label" name="Page ${samplePageNumber+1}" pos="2,4,2,4,l,c" />
+				<cell type="href" name="" disabled="${!sampleHasNextPage}" pos="3,4,3,4,l,c" glyph="FA-ANGLE_RIGHT" ref_id="Report-1356" >
+					<var name="samplePageNumber" value="${( samplePageNumber+1 )}" />
+				</cell>
+			</body>
+		</form>
+	</layout>
+</project>
